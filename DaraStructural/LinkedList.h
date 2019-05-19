@@ -12,6 +12,7 @@ typedef struct LNode {
 
 //采用头插法建立单链表
 LinkList List_HeadInsert(LinkList &L) {
+	L = new LNode();
 	LNode* s; int x;	
 	L->next = NULL;
 	cin >> x;
@@ -25,5 +26,19 @@ LinkList List_HeadInsert(LinkList &L) {
 	return L;
 }
 
-//
-
+//采用尾插法建立单链表
+LinkList List_TailInsert(LinkList& L) {
+	L = new LNode();
+	L->next = NULL;
+	LNode* tail = L;
+	int data;
+	cin >> data;
+	while (data != 9999) {
+		LNode* a = new LNode();
+		a->data = data;
+		tail->next = a;
+		tail = a;
+		cin >> data;
+	}
+	return L;
+}
